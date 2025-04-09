@@ -31,7 +31,11 @@ MIDDLEWARE = [
 MIDDLEWARE += ['corsheaders.middleware.CorsMiddleware']
 
 CORS_ALLOW_ALL_ORIGINS = True
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    "potential-adventure-wgvpg46jprpc9wp-8000.app.github.dev",
+    "localhost",
+    "127.0.0.1"
+]
 
 # Add the required TEMPLATES configuration for the admin application
 TEMPLATES = [

@@ -1,17 +1,30 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.http import JsonResponse
 from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, LeaderboardSerializer, WorkoutSerializer
 from .models import User, Team, Activity, Leaderboard, Workout
 
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
-        'users': 'http://localhost:8000/api/users/',
-        'teams': 'http://localhost:8000/api/teams/',
-        'activities': 'http://localhost:8000/api/activities/',
-        'leaderboard': 'http://localhost:8000/api/leaderboard/',
-        'workouts': 'http://localhost:8000/api/workouts/'
+        'users': 'https://potential-adventure-wgvpg46jprpc9wp-8000.app.github.dev/api/users/',
+        'teams': 'https://potential-adventure-wgvpg46jprpc9wp-8000.app.github.dev/api/teams/',
+        'activities': 'https://potential-adventure-wgvpg46jprpc9wp-8000.app.github.dev/api/activities/',
+        'leaderboard': 'https://potential-adventure-wgvpg46jprpc9wp-8000.app.github.dev/api/leaderboard/',
+        'workouts': 'https://potential-adventure-wgvpg46jprpc9wp-8000.app.github.dev/api/workouts/'
+    })
+
+def api_endpoint(request):
+    return JsonResponse({
+        "message": "Welcome to OctoFit API!",
+        "url": "https://potential-adventure-wgvpg46jprpc9wp-8000.app.github.dev"
+    })
+
+def another_endpoint(request):
+    return JsonResponse({
+        "info": "This is another endpoint.",
+        "url": "https://potential-adventure-wgvpg46jprpc9wp-8000.app.github.dev"
     })
 
 class UserViewSet(viewsets.ModelViewSet):
